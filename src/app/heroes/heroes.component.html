@@ -1,4 +1,5 @@
 <h2>My Legends</h2>
+
 <ul class="legends">
   <li *ngFor="let legend of legends"
     [class.selected]="legend === selectedLegend"
@@ -7,13 +8,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedLegend">
-
-  <h2>{{selectedLegend.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedLegend.id}}</div>
-  <div>
-    <label for="legend-name">Legend name: </label>
-    <input id="legend-name" [(ngModel)]="selectedLegend.name" placeholder="name">
-  </div>
-
-</div>
+<app-legend-detail [legend]="selectedLegend"></app-legend-detail>
