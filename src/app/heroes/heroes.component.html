@@ -1,11 +1,11 @@
 <h2>My Legends</h2>
 
 <ul class="legends">
-  <li *ngFor="let legend of legends"
-    [class.selected]="legend === selectedLegend"
-    (click)="onSelect(legend)">
-    <span class="badge">{{legend.id}}</span> {{legend.name}}
+  <li *ngFor="let legend of legends">
+
+    <a routerLink="/detail/{{legend.id}}">
+      <span class="badge">{{legend.id}}</span> {{legend.name}}
+    </a>
   </li>
 </ul>
 
-<app-legend-detail [legend]="selectedLegend"></app-legend-detail>

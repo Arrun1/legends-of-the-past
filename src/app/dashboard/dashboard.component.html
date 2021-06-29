@@ -1,0 +1,8 @@
+<h2>Popular Legends</h2>
+<div class="legends-menu">
+
+    <a *ngFor="let legend of legends"
+    routerLink="/detail/{{legend.id}}">
+    {{legend.name}}
+  </a>
+</div>

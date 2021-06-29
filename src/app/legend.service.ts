@@ -16,4 +16,11 @@ export class LegendService {
     this.messageService.add('LegendService: fetched legends');
     return legends;
   }
+
+  getLegend(id: number): Observable<Legend> {
+    
+    const legend = LEGENDS.find(h => h.id === id)!;
+    this.messageService.add(`LegendService: fetched legend id=${id}`);
+    return of(legend);
+  }
 }
