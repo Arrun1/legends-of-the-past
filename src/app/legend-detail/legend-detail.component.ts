@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Legend } from '../legend';
 
 import { ActivatedRoute } from '@angular/router';
@@ -33,4 +33,12 @@ export class LegendDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    if (this.legend) {
+      this.legendService.updateLegend(this.legend)
+        .subscribe(() => this.goBack());
+    }
+  }
+
 }

@@ -1,4 +1,13 @@
 <h2>My Legends</h2>
+<div>
+  <label for="new-legend">Legend name: </label>
+  <input id="new-legend" #legendName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(legendName.value); legendName.value=''">
+    Add legend
+  </button>
+</div>
 
 <ul class="legends">
   <li *ngFor="let legend of legends">
@@ -6,6 +15,8 @@
     <a routerLink="/detail/{{legend.id}}">
       <span class="badge">{{legend.id}}</span> {{legend.name}}
     </a>
+    <button class="delete" title="delete legend"
+      (click)="delete(legend)">x</button>
   </li>
 </ul>
 

@@ -31,8 +31,19 @@ export class HeroesComponent implements OnInit {
         .subscribe(legends => this.legends= legends);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.legendService.addLegend({ name } as Legend)
+      .subscribe(legend => {
+        this.legends.push(legend);
+      });
+  }
 
-
+  delete(legend: Legend): void {
+    this.legends = this.legends.filter(h => h !== legend);
+    this.legendService.deleteLegend(legend.id).subscribe();
+  }
 
 
 }
